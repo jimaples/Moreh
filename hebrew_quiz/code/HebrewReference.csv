@@ -1,0 +1,11 @@
+utf-8
+alephbet,א,ב,ג,ד,ה,ו,ז,ח,ט,י,כ,ל,מ,נ,ס,ע,פ,צ,ק,ר,ש,ת
+a_first,א,בּ,גּ,דּ,ה,ו,ז,ח,ט,י,כּ,ל,מ,נ,ס,ע,פּ,צ,ק,ר,ש,תּ
+a_final,א,ב,ג,ד,ה,ו,ז,ח,ט,י,ך,ל,ם,ן,ס,ע,ף,ץ,ק,ר,ש,ת
+a_name,Aleph,Bet,Gimel,Dalet,Hey,Vav,Zayin,Chet,Tet,Yod,Kaf,Lamed,Mem,Nun,Samech,Ayin,Peh,Tsadi,Kof,Resh,Shin,Tav
+a_english,›,b,g,d,h,v,z,h,t,y,k,l,m,n,s,‹,p,s,q,r,s,t
+vowels,בַ,בֶ,בִ,בֻ,בָ,בֵ,בֵי,בִי,בוֿ,בוּ
+v_names,Patah,Seghol,Hiriq Qatan,Qubbus,Qamats,Sereh,Sereh,Hiriq Gadol,Holam,Shuruq
+v_english,a,e,i,u,a,e,e,i,o,o,u
+v_word,card,pen,sit,pull,card,prey,prey,marine,lore,lore,flute
+v_names,Patah,Seghol,Hiriq Qatan,Qubbus,Qamats,Sereh,Sereh,Hiriq Gadol,Holam,Shuruq

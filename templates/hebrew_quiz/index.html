@@ -1,0 +1,75 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>{% block head_title %}Moreh{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'hebrew_quiz/quiz.css' %}" />
+    <link rel="shortcut icon" href="{% static 'hebrew_quiz/aleph.ico' %}">
+</head>
+<body>    
+<div class="wrapper">
+    <div class="header"><p>{{ question.name }}</p></div>
+    <div class="main">
+        {% if show_help %}
+            <div class="help">
+                <p style="width:300px;">Return to this screen by clicking the "Cheat" button below. Note that this will set you back a few questions!</p>
+                <table>
+                    {% for i in q_set %}
+                        <tr><td style="font-size:xx-large;">{{ i.q }}</td><td>{{ i.a }}</td></tr>
+                    {% endfor %}
+                </table>                
+                <p><a href="{% url 'hebrew_quiz:showHelp' 0 %}">Done</a></p>
+            </div>
+        {% else %}
+            <div class="q_feedback">
+            {% if feedback %}
+                {% if correct %}
+                    <p style="color:#008000;">Correct! Set at {{ progress }}</p>
+                {% else %}
+                    <p style="color:#A00000;"><span style="font-size:x-large;">{{ previous.q }}</span>  =  {{ previous.a }}</p>
+                {% endif %}   
+            {% endif %}
+            </div>
+            <div class="q_prompt"><p>{{ question.prompt }}</p></div>
+            <div class="q_question"><p>{{ question.q }}</p></div>
+            <div class="q_options">
+                <table> <!-- Force all options to have the same width -->
+                {% for choice in choices %}
+                    <tr><td><a href="{% url 'hebrew_quiz:answer' choice.idx %}"><p>{{ choice.a }}</p></a></td></tr>
+                {% endfor %}
+                </table>
+            </div>
+        {% endif %}   
+    </div>   
+    {% if show_cat %}
+        <div class="sidebar" style="border-bottom: 1px solid black;">    
+            <p>Quiz Categories:</p>
+            <table>
+            {% for cat in categories %}
+                {% if cat.done %}
+                    <tr><td style="background-color:#008000; color:#FFFFFF">
+                {% else %}
+                    <tr><td>
+                {% endif %}
+                <a href="{% url 'hebrew_quiz:setCategory' cat.idx %}"><p>{{ cat.name }}</p></a></td></tr>
+            {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+    <div class="footer">
+        <ul>
+            {% if show_cat %}
+                <li><a href="{% url 'hebrew_quiz:showCategories' 0 %}">Hide Categories</a></li>
+            {% else %}
+                <li><a href="{% url 'hebrew_quiz:showCategories' 1 %}">Show Categories</a></li>
+            {% endif %}
+            <li><a href="{% url 'hebrew_quiz:showHelp' 1 %}">Cheat</a></li>
+        </ul>
+    </div>
+</div>
+<p>Debug information:</p>
+<p>{{ now }} | Moreh\hebrew_quiz\templates\hebrew_quiz\index.html</p>
+{% for cat in categories %}
+    <!--p>{{ cat }}</p-->
+{% endfor %}
+</body>
+</html>
